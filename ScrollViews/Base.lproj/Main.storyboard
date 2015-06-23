@@ -59,10 +59,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" minimumZoomScale="0.25" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-83-uwL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.25" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-83-uwL">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Oc-Dgg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="504" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Oc-Dgg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                     </imageView>
                                 </subviews>
