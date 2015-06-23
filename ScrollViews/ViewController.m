@@ -52,7 +52,7 @@
     
     for (NSString *imageName in self.imageNames) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:(CGRect){xPosition,0,self.scrollView.frame.size.width, self.scrollView.frame.size.height}];
-        NSLog(@"Image Frame height:%f", imageView.frame.size.height);
+        //NSLog(@"Image Frame height:%f", imageView.frame.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         UIImage *image = [UIImage imageNamed:imageName];
         imageView.image = image;
@@ -80,7 +80,7 @@
         UIScrollView *scrollView = (UIScrollView *)sender;
         NSLog(@"Recognizer X:%f, Recognizer Y:%f", scrollView.contentOffset.x, scrollView.contentOffset.y);
         
-        int imageNum = scrollView.contentOffset.x/ scrollView.frame.size.width;
+        int imageNum = scrollView.contentOffset.x / scrollView.frame.size.width;
         
         NSLog(@"Image num: %d", imageNum);
         

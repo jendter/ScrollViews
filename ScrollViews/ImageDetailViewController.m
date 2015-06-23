@@ -22,23 +22,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.image = [UIImage imageNamed:self.imageName];
+    self.imageView.image = self.image;
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     
+    float zoom = self.scrollView.frame.size.width / self.image.size.width;
+    NSLog(@"Zoom = %f", zoom);
     
+    if (self.image.size.width > self.image.size.height){
+        [self.scrollView zoomToRect:(CGRect){0, 0, self.image.size.width, self.image.size.height*zoom} animated:NO];
+        self.scrollView.minimumZoomScale = zoom;
+    } else {
+        [self.scrollView zoomToRect:(CGRect){0, 0, self.image.size.width*zoom, self.image.size.height} animated:NO];
+        zoom = self.scrollView.frame.size.height / self.image.size.height;
+        self.scrollView.minimumZoomScale = zoom;
+    }
     
-    self.image = [UIImage imageNamed:self.imageName];
-    self.imageView.image = self.image;
-    //self.imageView.sizeToFit;
-    self.imageView.frame = self.scrollView.frame;
-    
-    
-    self.scrollView.contentSize = (CGSize){self.imageView.frame.size.width, self.imageView.frame.size.height};
-    
-    
+  
 }
 
 
@@ -46,6 +49,7 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
+
 
 
 @end
