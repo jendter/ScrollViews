@@ -15,9 +15,16 @@
 @property (strong, nonatomic) UIImage *image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+
 @end
 
 @implementation ImageDetailViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     

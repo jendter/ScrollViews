@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AAe-4U-HmL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -13,31 +13,39 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-Jy-bap">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-Jy-bap">
+                                <rect key="frame" x="0.0" y="64" width="320" height="484"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="vah-9c-Sdj"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="4EM-2L-xrO">
+                                <rect key="frame" x="141" y="538" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XcD-Jy-bap" secondAttribute="trailing" id="PhF-xK-dL4"/>
-                            <constraint firstItem="XcD-Jy-bap" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="b0X-FX-xXk"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XcD-Jy-bap" secondAttribute="bottom" id="j3A-Ge-0Fm"/>
-                            <constraint firstItem="XcD-Jy-bap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="o73-tq-RRl"/>
+                            <constraint firstAttribute="trailing" secondItem="XcD-Jy-bap" secondAttribute="trailing" id="MEL-as-94y"/>
+                            <constraint firstAttribute="centerX" secondItem="4EM-2L-xrO" secondAttribute="centerX" id="SsX-ha-W98"/>
+                            <constraint firstAttribute="bottom" secondItem="4EM-2L-xrO" secondAttribute="bottom" constant="-7" id="dys-9F-cGe"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XcD-Jy-bap" secondAttribute="bottom" constant="20" id="ehl-Da-J9L"/>
+                            <constraint firstItem="XcD-Jy-bap" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="mB5-RM-Nkq"/>
+                            <constraint firstItem="XcD-Jy-bap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="oPr-We-rpe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XC6-MS-ybD"/>
                     <connections>
+                        <outlet property="pageControl" destination="4EM-2L-xrO" id="1Ko-c4-Ruz"/>
                         <outlet property="scrollView" destination="XcD-Jy-bap" id="L0J-UW-BS4"/>
-                        <segue destination="yh2-Z1-zEz" kind="show" identifier="showImageDetailView" id="OVu-fc-TUa"/>
+                        <segue destination="yh2-Z1-zEz" kind="push" identifier="showImageDetailView" id="OVu-fc-TUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="650" y="280"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="JY8-TI-DYe">
@@ -48,17 +56,13 @@
                         <viewControllerLayoutGuide type="bottom" id="GT1-OU-4VT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FNe-Hc-qdW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-83-uwL">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-83-uwL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Oc-Dgg">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <variation key="widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                        </variation>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Oc-Dgg"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="5hM-Oc-Dgg" secondAttribute="bottom" id="7lg-mf-HxM"/>
@@ -66,29 +70,6 @@
                                     <constraint firstItem="5hM-Oc-Dgg" firstAttribute="leading" secondItem="Shw-83-uwL" secondAttribute="leading" id="u1Z-sY-2Bk"/>
                                     <constraint firstAttribute="trailing" secondItem="5hM-Oc-Dgg" secondAttribute="trailing" id="xDH-eb-vdJ"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="5hM-Oc-Dgg"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="7lg-mf-HxM"/>
-                                        <exclude reference="RKA-XY-roy"/>
-                                        <exclude reference="u1Z-sY-2Bk"/>
-                                        <exclude reference="xDH-eb-vdJ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                    <mask key="subviews">
-                                        <include reference="5hM-Oc-Dgg"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="7lg-mf-HxM"/>
-                                        <include reference="RKA-XY-roy"/>
-                                        <include reference="u1Z-sY-2Bk"/>
-                                        <include reference="xDH-eb-vdJ"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="yh2-Z1-zEz" id="jXP-o0-4C5"/>
                                 </connections>
@@ -101,29 +82,8 @@
                             <constraint firstItem="Shw-83-uwL" firstAttribute="leading" secondItem="FNe-Hc-qdW" secondAttribute="leading" id="tc3-Jy-BHq"/>
                             <constraint firstAttribute="trailing" secondItem="Shw-83-uwL" secondAttribute="trailing" id="uke-t7-DkP"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Shw-83-uwL"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="fTz-0I-cq7"/>
-                                <exclude reference="tc3-Jy-BHq"/>
-                                <exclude reference="uke-t7-DkP"/>
-                                <exclude reference="JUz-eH-lWz"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Shw-83-uwL"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="fTz-0I-cq7"/>
-                                <include reference="tc3-Jy-BHq"/>
-                                <include reference="uke-t7-DkP"/>
-                                <include reference="JUz-eH-lWz"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="sls-p0-osb"/>
                     <connections>
                         <outlet property="imageView" destination="5hM-Oc-Dgg" id="zBH-aQ-pOw"/>
                         <outlet property="scrollView" destination="Shw-83-uwL" id="RJ5-Ch-xR4"/>
@@ -131,7 +91,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29I-In-j6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="315"/>
+            <point key="canvasLocation" x="1038.4000000000001" y="298.19999999999999"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cbo-IF-pR5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AAe-4U-HmL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZuH-Du-n1p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Gxx-xM-nOh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhK-qc-SNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.40000000000001" y="298.19999999999999"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

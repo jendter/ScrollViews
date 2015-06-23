@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *rootScrollView;
 @property (strong, nonatomic) NSArray *imageNames;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
 
 @end
 
@@ -23,16 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.rootScrollView = [[UIView alloc] init];
-    [self.scrollView addSubview:self.rootScrollView];
+    
+    
+    //[self.navigationController setNavigationBarHidden:YES animated:NO];
     
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidLayoutSubviews {
+    //[super viewDidLayoutSubviews];
     
-    //[self.navigationController setNavigationBarHidden:YES animated:animated];
+    //NSLog(@"The scroll view starts out as origin y: %f", self.scrollView.frame.origin.y);
+    //NSLog(@"The scroll view starts out as origin y: %f", self.scrollView.frame.origin.y);
+    
+    self.rootScrollView = [[UIView alloc] init];
+    [self.scrollView addSubview:self.rootScrollView];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
                                              initWithTarget:self action:@selector(handleImageTap:)];
@@ -45,6 +52,7 @@
     
     for (NSString *imageName in self.imageNames) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:(CGRect){xPosition,0,self.scrollView.frame.size.width, self.scrollView.frame.size.height}];
+        NSLog(@"Image Frame height:%f", imageView.frame.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         UIImage *image = [UIImage imageNamed:imageName];
         imageView.image = image;
@@ -64,12 +72,7 @@
 }
 
 -(void)handleImageTap:(UITapGestureRecognizer *)recognizer{
-    //NSLog(@"Tapped!");
-    //UIScrollView *scrollView = (UIScrollView *)recognizer.view;
-    
     [self performSegueWithIdentifier:@"showImageDetailView" sender:recognizer.view];
-    
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -87,6 +90,21 @@
         
     }
 }
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"ended scrolling");
+    
+    int imageNum = scrollView.contentOffset.x/ scrollView.frame.size.width;
+    
+    self.pageControl.currentPage = imageNum;
+    
+    
+    NSLog(@"Scroll Frame height:%f", self.scrollView.frame.size.height);
+    //imageDetail.imageName = self.imageNames[imageNum];
+
+    
+}
+
 
 
 @end
