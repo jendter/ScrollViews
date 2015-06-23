@@ -33,10 +33,105 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="XcD-Jy-bap" id="L0J-UW-BS4"/>
+                        <segue destination="yh2-Z1-zEz" kind="show" identifier="showImageDetailView" id="OVu-fc-TUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="JY8-TI-DYe">
+            <objects>
+                <viewController id="yh2-Z1-zEz" customClass="ImageDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TMD-Yl-5e5"/>
+                        <viewControllerLayoutGuide type="bottom" id="GT1-OU-4VT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FNe-Hc-qdW">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-83-uwL">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Oc-Dgg">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="widthClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5hM-Oc-Dgg" secondAttribute="bottom" id="7lg-mf-HxM"/>
+                                    <constraint firstItem="5hM-Oc-Dgg" firstAttribute="top" secondItem="Shw-83-uwL" secondAttribute="top" id="RKA-XY-roy"/>
+                                    <constraint firstItem="5hM-Oc-Dgg" firstAttribute="leading" secondItem="Shw-83-uwL" secondAttribute="leading" id="u1Z-sY-2Bk"/>
+                                    <constraint firstAttribute="trailing" secondItem="5hM-Oc-Dgg" secondAttribute="trailing" id="xDH-eb-vdJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="5hM-Oc-Dgg"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="7lg-mf-HxM"/>
+                                        <exclude reference="RKA-XY-roy"/>
+                                        <exclude reference="u1Z-sY-2Bk"/>
+                                        <exclude reference="xDH-eb-vdJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                    <mask key="subviews">
+                                        <include reference="5hM-Oc-Dgg"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="7lg-mf-HxM"/>
+                                        <include reference="RKA-XY-roy"/>
+                                        <include reference="u1Z-sY-2Bk"/>
+                                        <include reference="xDH-eb-vdJ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="yh2-Z1-zEz" id="jXP-o0-4C5"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GT1-OU-4VT" firstAttribute="top" secondItem="Shw-83-uwL" secondAttribute="bottom" id="JUz-eH-lWz"/>
+                            <constraint firstItem="Shw-83-uwL" firstAttribute="top" secondItem="FNe-Hc-qdW" secondAttribute="top" id="fTz-0I-cq7"/>
+                            <constraint firstItem="Shw-83-uwL" firstAttribute="leading" secondItem="FNe-Hc-qdW" secondAttribute="leading" id="tc3-Jy-BHq"/>
+                            <constraint firstAttribute="trailing" secondItem="Shw-83-uwL" secondAttribute="trailing" id="uke-t7-DkP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Shw-83-uwL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="fTz-0I-cq7"/>
+                                <exclude reference="tc3-Jy-BHq"/>
+                                <exclude reference="uke-t7-DkP"/>
+                                <exclude reference="JUz-eH-lWz"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Shw-83-uwL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="fTz-0I-cq7"/>
+                                <include reference="tc3-Jy-BHq"/>
+                                <include reference="uke-t7-DkP"/>
+                                <include reference="JUz-eH-lWz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="5hM-Oc-Dgg" id="zBH-aQ-pOw"/>
+                        <outlet property="scrollView" destination="Shw-83-uwL" id="RJ5-Ch-xR4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="29I-In-j6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029" y="315"/>
         </scene>
     </scenes>
 </document>
